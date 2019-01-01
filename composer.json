@@ -1,0 +1,31 @@
+{
+    "name": "macgyer/yii2-spamshield",
+    "minimum-stability": "stable",
+    "description": "Mathematical captcha for Yii2",
+    "keywords": [
+        "captcha",
+        "yii2",
+        "widget",
+        "arithmetics",
+    ],
+    "homepage": "http://github.com/macgyer/yii2-spamshield",
+    "type": "yii2-extension",
+    "license": "BSD-3-Clause",
+    "authors": [
+        {
+            "name": "Christoph Erdmann",
+            "homepage": "https://www.matero.de",
+            "role": "Developer"
+        }
+    ],
+    "version": "1.0.0",
+    "require": {
+        "php": ">=7.1.0",
+        "yiisoft/yii2": "~2.0.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "macgyer\\yii2spamshield\\": "src"
+        }
+    }
+}
