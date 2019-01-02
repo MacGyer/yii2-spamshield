@@ -6,7 +6,7 @@
         "captcha",
         "yii2",
         "widget",
-        "arithmetics",
+        "arithmetics"
     ],
     "homepage": "http://github.com/macgyer/yii2-spamshield",
     "type": "yii2-extension",
