@@ -14,7 +14,27 @@ To install the package add the following to the ```require``` section of your co
 },
 ```
 
+## Usage
+```php
+// in your ActiveForm
+
+<?= $form->field($model, 'yourProperty')->widget(\macgyer\yii2spamshield\SpamShield::class) ?>
+```
+Please check the source for details on how to configure the widget instance.
+
+```php
+// in your Model
+
+public function rules()
+{
+    return [
+        // other rules
+        ['yourProperty', \macgyer\yii2spamshield\SpamShieldValidator::class]
+    ];
+}
+```
+
 ## Changelog
 
-### 1.0.0 - 2019-01-01
+### 1.0.0 - 2019-01-02
 * initial release
