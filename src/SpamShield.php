@@ -28,6 +28,12 @@ class SpamShield extends InputWidget
     ];
 
     /**
+     * @var bool boolean whether to render the numbers as words.
+     * Please make sure you have the [PHP intl extension](http://php.net/manual/en/book.intl.php) installed.
+     */
+    public $spelloutNumbers = false;
+
+    /**
      * {@inheritdoc}
      */
     public function init()
@@ -56,9 +62,21 @@ class SpamShield extends InputWidget
     {
         $name = self::getSessionKey();
         $randomKey = array_rand($this->mathSentences, 1);
+        $number1 = Yii::$app->session->get("$name.number1");
+        $number2 = Yii::$app->session->get("$name.number2");
+
+        if ($this->spelloutNumbers) {
+            try {
+                $number1 = Yii::$app->formatter->asSpellout($number1);
+                $number2 = Yii::$app->formatter->asSpellout($number2);
+            } catch (\Exception $exception) {
+                Yii::warning('SpamShield: ' . $exception->getMessage());
+            }
+        }
+
         return strtr($this->mathSentences[$randomKey], [
-            '{number1}' => Yii::$app->session->get("$name.number1"),
-            '{number2}' => Yii::$app->session->get("$name.number2"),
+            '{number1}' => $number1,
+            '{number2}' => $number2,
         ]);
     }
 
